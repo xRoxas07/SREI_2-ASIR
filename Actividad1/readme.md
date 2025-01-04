@@ -25,7 +25,7 @@ WISA es otro acrónimo utilizado en el desarrollo web, pero a diferencia de LAMP
 WISA es especialmente popular en entornos donde se utilizan tecnologías y plataformas Microsoft, como en empresas que ya utilizan Windows y SQL Server para otras necesidades. Ofrece una integración sólida de tecnologías y herramientas desarrolladas por Microsoft.
 
 
-###Lee el siguiente artículo e instala Apache en Ubuntu:
+### Lee el siguiente artículo e instala Apache en Ubuntu:
 
 
 Primero entraremos como "super usuario" usuando el comando sudo su para tener permisos de administración y a continucion actulizaremos los paquetes de instalacion con sudo apt update
