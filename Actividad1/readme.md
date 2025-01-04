@@ -1,8 +1,8 @@
-####Actividad #1
+#### Actividad #1
 
 
 
-###La arquitectura Web es un modelo compuesto de tres capas, ¿cuáles son y cuál es  la función de cada una de ellas?
+### La arquitectura Web es un modelo compuesto de tres capas, ¿cuáles son y cuál es  la función de cada una de ellas?
 
 
 1º Capa de Base de Datos, donde esta toda la documentación de la información que se pretende administrar mediante el servicio web y emplearía una plataforma.
@@ -13,7 +13,7 @@
 La tercera capa, donde los clientes del servicio web, al que accederían mediante un nave- gador web como Firefox, Internet Explorer, Opera, etc.
 
 
-###Una plataforma web es el entorno de desarrollo de software empleado para  diseñar y ejecutar un sitio web; destacan dos plataformas web, LAMP y WISA. Explica en qué consiste cada una de ellas.
+### Una plataforma web es el entorno de desarrollo de software empleado para  diseñar y ejecutar un sitio web; destacan dos plataformas web, LAMP y WISA. Explica en qué consiste cada una de ellas.
 
 
 LAMP es un acrónimo que se refiere a un conjunto de tecnologías de código abierto ampliamente utilizadas en el desarrollo web. Las letras de LAMP representan lo siguiente: Linux, Apache, MySQL, PHP.
