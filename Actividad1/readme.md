@@ -30,6 +30,8 @@ WISA es especialmente popular en entornos donde se utilizan tecnologías y plata
 
 Primero entraremos como "super usuario" usuando el comando sudo su para tener permisos de administración y a continucion actulizaremos los paquetes de instalacion con sudo apt update
 
+![](images/.png)
 
 Luego de actualizar los paquetes de instalación podremos instalar apache2 usuando el comando sudo apt install apache2 y el proceso comenzara teniendo que confirmar la instalación
+
 
