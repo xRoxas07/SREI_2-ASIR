@@ -1,4 +1,4 @@
-# ACTIVIDAD 3
+# ACTIVIDAD 5
 ### Crea un directorio llamado "dir1" y otro llamado "dir2"
 sudo mkdir /var/www/dir1
 sudo mkdir /var/www/dir2
