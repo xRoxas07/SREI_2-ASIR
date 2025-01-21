@@ -2,7 +2,7 @@
 
 ## 1.	La UHU (Universidad de Huelva) tiene varios servidores DNS. Consulta a tu servidor DNS por defecto sus direcciones IP al menos 2 de ellos.
 
-![]()
+![](/imagenes/Screenshot_1.png)
 
 ## 2.	¿Son las respuestas anteriores autoritativas? 
 No ya que solo los propietarios del servidor o gestor del mismo pueden obtenerla
