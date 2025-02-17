@@ -1,7 +1,7 @@
 # SREI_2-ASIR
 Fuck my life 2 electricabulaluz
 
-| Tema 1 |
+## Tema 1 
 |--------|
 | [Instalación de Apache]([https://ejemplo.com](https://github.com/xRoxas07/SREI_2-ASIR/tree/main/Actividad1)) |
 | [Directiva Basica](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/Actividad%205/readme.md) |
@@ -12,3 +12,8 @@ Fuck my life 2 electricabulaluz
 | Practica 1º Trimestre |
 |--------|
 | [Enlace](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/Proyecto%201ºT/readme.md) |
+
+## Tema 2
+|--------|
+| [NSLOOKUP](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/Actividad%205%20T2/README.md) |
+| [DIG](https://ejemplo.com) |
