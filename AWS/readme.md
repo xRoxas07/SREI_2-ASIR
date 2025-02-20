@@ -6,13 +6,13 @@ Antes de comenzar, actualizamos la lista de paquetes disponibles en el sistema.
 sudo apt update
 ```
 
-![](/imagenes/Screenshot_1.png)
+![](imagenes/Screenshot_1.png)
 
 ```
 sudo apt upgrade
 ```
 
-![](/imagenes/Screenshot_2.png)
+![](imagenes/Screenshot_2.png)
 
 A continuación, instalamos Apache.
 
@@ -20,7 +20,7 @@ A continuación, instalamos Apache.
 sudo apt-get install apache2
 ```
 
-![](/imagenes/Screenshot_3.png)
+![](imagenes/Screenshot_3.png)
 
 # Configuración de MySQL
 
@@ -30,18 +30,18 @@ Procedemos a instalar PHP, MySQL y MariaDB.
 sudo apt-get install php8.3 libapapche2-mod-php8.3 php8.3-mysql
 ```
 
-![](/imagenes/Screenshot_4.png)
+![](imagenes/Screenshot_4.png)
 
 ```
 sudo apt-get install libaprutil1-dbd-mysql
 ```
-![](/imagenes/Screenshot_4.5.png)
+![](imagenes/Screenshot_4.5.png)
 
 ```
 sudo apt-get install mariadb-server mariadb-client -y
 ```
 
-![](/imagenes/Screenshot_17.png)
+![](imagenes/Screenshot_17.png)
 
 Activamos los servicios necesarios.
 
@@ -53,7 +53,7 @@ sudo systemctl enable apache2
 sudo systemctl enable mysql
 ```
 
-![](/imagenes/Screenshot_6.png)
+![](imagenes/Screenshot_6.png)
 
 Ingresamos a MySQL.
 
@@ -67,7 +67,7 @@ Creamos una base de datos.
 create database defaultsite_db;
 ```
 
-![](/imagenes/Screenshot_7.png)
+![](imagenes/Screenshot_7.png)
 
 Asignamos permisos adecuados al usuario administrador.
 
@@ -83,7 +83,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON defaultsite_db.* TO 'defaultsite_admin'@
 flush privileges;
 ```
 
-![](/imagenes/Screenshot_8.png)
+![](imagenes/Screenshot_8.png)
 
 Accedemos a la base de datos y creamos la tabla para almacenar credenciales de usuarios.
 
@@ -93,7 +93,7 @@ use defaultsite_db;
 ```
 create table mysql_auth ( username varchar(191) not null, passwd varchar(191), groups varchar(191), primary key (username) );
 ```
-![](/imagenes/Screenshot_9.png)
+![](imagenes/Screenshot_9.png)
 
 
 Para mayor seguridad, generamos un hash de la contraseña.
@@ -102,7 +102,7 @@ Para mayor seguridad, generamos un hash de la contraseña.
 htpasswd -bns siteuser siteuser
 ```
 
-![](/imagenes/Screenshot_10.png)
+![](imagenes/Screenshot_10.png)
 
 Insertamos los datos en la tabla correspondiente.
 
@@ -110,7 +110,7 @@ Insertamos los datos en la tabla correspondiente.
 INSERT INTO `mysql_auth` (`username`, `passwd`, `groups`) VALUES('siteuser', '{SHA}tk7HEH6Wo7SKT6+3FHCgiGnJ6dA=', 'sitegroup');
 ```
 
-![](/imagenes/Screenshot_11.png)
+![](imagenes/Screenshot_11.png)
 
 Habilitamos los módulos necesarios y reseteamos apache.
 
@@ -130,8 +130,8 @@ sudo a2enmod socache_shmcb
 sudo a2enmod authn_socache
 ```
 
-![](/imagenes/Screenshot_21.png)
-![](/imagenes/Screenshot_13.png)
+![](imagenes/Screenshot_21.png)
+![](imagenes/Screenshot_13.png)
 
 Creamos el directorio protegido.
 
@@ -143,7 +143,7 @@ sudo mkdir /var/www/html/protegido
 sudo chown -R www-data:www-data /var/www/html/protegido
 ```
 
-![](/imagenes/Screenshot_14.png)
+![](imagenes/Screenshot_14.png)
 
 Editamos la configuración de Apache.
 
@@ -172,7 +172,7 @@ Require valid-user
 AuthDBDUserPWQuery "SELECT passwd FROM mysql_auth WHERE username = %s"
 </Directory>
 ```
-![](/imagenes/Screenshot_12.png)
+![](imagenes/Screenshot_12.png)
 
 Y reiniciamos Apache.
 
@@ -180,11 +180,11 @@ Y reiniciamos Apache.
 sudo systemctl restart apache2
 ```
 
-![](/imagenes/Screenshot_13.png)
+![](imagenes/Screenshot_13.png)
 
 Ahora, al acceder al directorio protegido vía web, se solicitarán credenciales de usuario.
 
-![](/imagenes/Screenshot_16.png)
+![](imagenes/Screenshot_16.png)
 
 # Configuración de SSL
 
@@ -194,7 +194,7 @@ Activamos el módulo SSL y reiniciamos nuevamente.
 sudo a2enmod ssl
 ```
 
-![](/imagenes/Screenshot_17.png)
+![](imagenes/Screenshot_17.png)
 
 Generamos un certificado SSL autofirmado. Durante la configuración, nos aseguramos de ingresar el nombre de dominio o IP en "Common Name".
 
@@ -212,7 +212,7 @@ Common Name (eg, your name or your server's hostname) []:3.84.60.22
 Email Address []:webmaster@example.com
 ```
 
-![](/imagenes/Screenshot_18.png)
+![](imagenes/Screenshot_18.png)
 
 Editamos la configuración de Apache para habilitar SSL y añadimos el siguiente bloque dentro de un VirtualHost en el puerto 443.
 
@@ -230,7 +230,7 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 </VirtualHost>
 ```
 
-![](/imagenes/Screenshot_19.png)
+![](imagenes/Screenshot_19.png)
 
 Verificamos la configuración y reiniciamos Apache.
 
@@ -244,4 +244,4 @@ sudo systemctl reload apache2
 
 Con esto, el certificado SSL autofirmado queda configurado correctamente y lo confirmamos entrando desde el navegador usando la IP del server entrando con los credenciales.
 
-![](/imagenes/Screenshot_20.png)
+![](imagenes/Screenshot_20.png)
