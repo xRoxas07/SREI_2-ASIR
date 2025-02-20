@@ -18,3 +18,7 @@ Fuck my life 2 electricabulaluz
 ---
 - [NSLOOKUP](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/Actividad%205%20T2/README.md) 
 - [DIG](https://ejemplo.com)                                                             
+
+## Practica 2º Trimestre 
+---
+- [AWS](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/AWS/readme.md)
