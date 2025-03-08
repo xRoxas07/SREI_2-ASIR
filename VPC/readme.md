@@ -6,7 +6,7 @@ Vamos al menú del `AWS` y buscamos **VPC** y entramos.
 
 En el menú de **VPC**, seleccionamos **Crear VPC**
 
-![](Screenshot_1.png)
+![](imagenes/Screenshot_1.png)
 
 En la página de `Configuración de la VPC`, configuramos los siguientes parámetros:
 
@@ -24,8 +24,8 @@ En la página de `Configuración de la VPC`, configuramos los siguientes paráme
   - Cantidad de subredes públicas: `2`
   - Cantidad de subredes privadas: `2`
   - 
-![](Screenshot_2.png)
-![](Screenshot_3.png)
+![](imagenes/Screenshot_2.png)
+![](imagenes/Screenshot_3.png)
 
   - Personalizar bloques de CIDR de subredes
     - Bloque de CIDR de la subred pública en us-east-1a: `10.2.0.0/24`
@@ -41,8 +41,8 @@ En la página de `Configuración de la VPC`, configuramos los siguientes paráme
 
 
 
-![](Screenshot_4.png)
-![](Screenshot_5.png)
+![](imagenes/Screenshot_4.png)
+![](imagenes/Screenshot_5.png)
 
 
 ---
@@ -51,29 +51,29 @@ En la página de `Configuración de la VPC`, configuramos los siguientes paráme
 
 Vamos al menú de AWS y buscamos `EC2` y entramos.
 
-![](Screenshot_6.png)
+![](imagenes/Screenshot_6.png)
 
 En el menú de **EC2 > Instancias > Instancia**, pulsamos en el botón **Lanzar instancias**.
 
 
 En el menú de `Lanzar una instancia`, configuramos los siguientes configuración:
-![](Screenshot_38.png)
-![](Screenshot_39.png)
-![](Screenshot_40.png)
-![](Screenshot_41.png)
-![](Screenshot_42.png)
+![](imagenes/Screenshot_38.png)
+![](imagenes/Screenshot_39.png)
+![](imagenes/Screenshot_40.png)
+![](imagenes/Screenshot_41.png)
+![](imagenes/Screenshot_42.png)
 
 Podemos verificar que la instancia esté en ejecución cuando terminemos
 
-![](Screenshot_43.png)
+![](imagenes/Screenshot_43.png)
 
 Nos conectaremos a la instancia a traves de la coneccion ECS por la direccion IPV4
 
-![](Screenshot_44.png)
+![](imagenes/Screenshot_44.png)
 
-![](Screenshot_45.png)
+![](imagenes/Screenshot_45.png)
 
-![](Screenshot_46.png)
+![](imagenes/Screenshot_46.png)
 
 
 ---
@@ -86,25 +86,25 @@ Actualizamos los paquetes del sistema
 sudo apt update && sudo apt upgrade -y
 ```
 
-![](Screenshot_47.png)
+![](imagenes/Screenshot_47.png)
 
 Luego instalaremos Apache2
 
 ```bash
 sudo apt install apache2 -y
 ```
-![](Screenshot_48.png)
+![](imagenes/Screenshot_48.png)
 
 Despues de la instalacion, activamos el servicio Apache2
 
 ```bash
 sudo systemctl start apache2 && sudo systemctl enable apache2
 ```
-![](Screenshot_49.png)
+![](imagenes/Screenshot_49.png)
 
 Podremos verificar que todo esta correctamente configurado si vamos al navegador con la dirección IP de la instancia EC2 en el navegador.
 
-![](Screenshot_50.png)
+![](imagenes/Screenshot_50.png)
 
 Ahora para crear nuestra base, primero añadiremos el repositorio de PHP y lo instalaremos.
 
@@ -114,8 +114,8 @@ sudo add-apt-repository ppa:ondrej/php -y
 ```bash
 sudo apt install php7.4 libapache2-mod-php7.4 php7.4-cli -y
 ```
-![](Screenshot_51.png)
-![](Screenshot_52.png)
+![](imagenes/Screenshot_51.png)
+![](imagenes/Screenshot_52.png)
 
 Instalamos MySQL
 
@@ -123,7 +123,7 @@ Instalamos MySQL
 sudo apt install php7.4-mysql -y
 ```
 
-![](Screenshot_53.png)
+![](imagenes/Screenshot_53.png)
 
 Y reiniciamos el servicio Apache2
 
@@ -131,125 +131,105 @@ Y reiniciamos el servicio Apache2
 sudo systemctl restart apache2
 ```
 
-![](Screenshot_54.png)
-
-- Comprobamos que PHP está correctamente instalado
+Podemos comprobamos que PHP está correctamente instalado con:
 
 ```bash
 php -v
 ```
 
-![alt text](Screenshot_31.png)
+![](imagenes/Screenshot_54.png)
 
 ---
 
 ## 4. Creación de la base de datos
 
-- Vamos al menú de AWS y buscamos Aurora and RDS y entramos en el servicio.
+Volvemos al menú de AWS y buscamos `Aurora and RDS`
 
-![alt text](Screenshot_32.png)
+![](imagenes/Screenshot_55.png)
 
-- En el menú, buscaremos Bases de datos y seleccionaremos Crear base de datos
+En el menú, seleccionaremos `Crear base de datos`
+![](imagenes/Screenshot_56.png)
 
-| ![alt text](Screenshot_33.png) | ![alt text](Screenshot_34.png) |
-| --- | --- |
 
-- En el menú de Crear base de datos, configuraremos los siguientes parámetros:
-  - Método de creación de base de datos: Creación estándar
+Configuraremos los siguientes parámetros:
 
-  ![alt text](Screenshot_35.png)
+![](imagenes/Screenshot_57.png)
 
-  - Opciones del motor
-    - Tipo de motor: MySQL
+![](imagenes/Screenshot_58.png)
 
-    ![alt text](Screenshot_36.png)
+![](imagenes/Screenshot_60.png)
 
-    - Dejamos el resto por defecto.
+![](imagenes/Screenshot_61.png)
 
-    ![alt text](Screenshot_37.png)
+![](imagenes/Screenshot_62.png)
 
-  - Plantillas: Capa gratuita
-  
-  ![alt text](Screenshot_38.png)
+![](imagenes/Screenshot_63.png)
 
-  - Disponibilidad y durabilidad: Implementación de una instancia de base de datos de zona de disponibilidad única
+Despues de la base de datos de nuestro AWS, entraremos en `Conmfigurar la conexion de EC2`, selecionamos nuestra MySQL y confirmaremos.
+![](imagenes/Screenshot_65.png)
+![](imagenes/Screenshot_64.png)
+![](imagenes/Screenshot_66.png)
+![](imagenes/Screenshot_67.png)
 
-  ![alt text](Screenshot_39.png)
-
-  - Configuración
-    - Identificador de instancias de bases de datos: serverwp-db
-    - Nombre de usuario maestro: admin
-    - Administración de credenciales: Autoadministrado
-    - Contraseña maestra
-  
-  ![alt text](Screenshot_40.png)
-
-  - Configuración de la instancia
-  
-  ![alt text](Screenshot_42.png)
-
-  - Almacenamiento
-  
-  ![alt text](Screenshot_41.png)
-
-  - Conectividad
-    - Recurso de computación: No se conecte a un recurso informático EC2
-    - Nube privada virtual (VPC): proyecto-vpc
-    - Acceso público: No
-
-  ![alt text](Screenshot_43.png)
-
-    - Grupo de seguridad de VPC (firewall): Crear nuevo
-    - Nuevo nombre del grupo de seguridad de VPC: serverwp-db-sg
-  
-  ![alt text](Screenshot_44.png)
-
-    - Proxy de RDS
-
-  ![alt text](Screenshot_45.png)
-
-  - Bajamos hasta la pestaña Configuración adicional y configuramos:
-    - Nombre de base de datos inicial: serverwpdb
-  
-  ![alt text](Screenshot_46.png)
-
-  - Crear base de datos
-  
-  ![alt text](Screenshot_47.png)
-
-  ![alt text](Screenshot_48.png)
-
-- Configuramos la base de datos en nuestra máquina EC2
-
-  - Entramos a la base de datos acciones > Configurar la conexión EC2
-  
-  ![alt text](Screenshot_49.png)
-
-  - Elegimos nuestra instancia EC2 serverwp y damos en Continuar
-  
-  ![alt text](Screenshot_50.png)
-
-  - Revisamos la configuración y damos en Configurar
-  
-  ![alt text](Screenshot_51.png)
-
-![alt text](Screenshot_52.png)
-
-- Actualizamos MySQL
+Comprabaremos que la funciona usando el comando en nuestra instancia:
 
 ```bash
-sudo apt install mysql-client-core-8.0
+mysql -h puerto_de_enlace -u admin -p
 ```
+![](imagenes/Screenshot_68.png)
+![](imagenes/Screenshot_70.png)
 
-- Comprobamos que funciona usando el siguiente comando en la terminal de nuestra instancia EC2
 
-```bash
-mysql -h puerto_de_enlace_BD -u admin -p
-```
+# Elastic File System (EFS)
 
-> Donde puerto_de_enlace_BD es el puerto de enlace de nuestra base de datos y admin es el usuario de la base de datos.
-> 
-> ![alt text](Screenshot_53.png)
+En el menu del AWS entrremos al `EFS` y selecionamos `Crear un sistemas de archivos`
 
-![alt text](Screenshot_54.png)
+![](imagenes/Screenshot_69.png)
+
+Usaremos nuestro VPC para el EFS
+![](imagenes/Screenshot_71.png)
+![](imagenes/Screenshot_72.png)
+
+Iremos a la configuracion de nuestro VPC de `Grupos de seguridad`, entremos a un grupo `servidorwp-sg` para configurar las `Reglas de entrada` añadiendo los protocolos de HTTP, NFS Y SSH.
+  
+![](imagenes/Screenshot_74.png)
+![](imagenes/Screenshot_73.png)
+
+
+Volveremos al EFS y desde la parte inferior selecionaremos las configuracion de `Red` cambiaresmos a nuestras VPC
+![](imagenes/Screenshot_75.png)
+![](imagenes/Screenshot_76.png)
+![](imagenes/Screenshot_77.png)
+
+De nuevo en EFS, le daremos a `Asociar`, en tipom de montaje sera `a traves de IP` usando `us-east-1a`
+![](imagenes/Screenshot_78.png)
+![](imagenes/Screenshot_79.png)
+
+## Montar EFS en la instancia
+
+Volveremos a nuestra instacia e instalaremos NFS
+![](imagenes/Screenshot_80.png)
+
+Creamos un directorio para poder montar nuestro sistemas de datos para usar el comando que nos copiamos antes
+![](imagenes/Screenshot_81.png)
+
+## Instalacion del Wordpress
+
+Descargaremos el archivo de instalacion
+![](imagenes/Screenshot_82.png)
+
+Descomprimimos el archivo y creamos un cliente MySQL para la base de datos de nuestro WordPress
+
+![](imagenes/Screenshot_83.png)
+![](imagenes/Screenshot_84.png)
+
+Entramos en nuestro MySQL usando IP que nos dio el AWS cuando lo creamos
+![](imagenes/Screenshot_85.png)
+
+Cremos una nueva base de datos para nuestro Wordpress
+![](imagenes/Screenshot_86.png)
+
+Y con eso podremos acceder a nuestra pagina de Wordpress atravez de nuestro navegador y hacer las configuraciones iniciales
+![](imagenes/Screenshot_87.png)
+
 
