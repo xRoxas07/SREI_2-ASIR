@@ -21,7 +21,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 Agregamos el repositorio de Docker
 
 ```bash
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/lin ux/ubuntu $(lsb_release -cs) stable"
 ```
 ![](imagenes/Screenshot_4.png)
 
