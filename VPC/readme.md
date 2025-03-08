@@ -191,9 +191,9 @@ En el menu del AWS entrremos al `EFS` y selecionamos `Crear un sistemas de archi
 
 ![](imagenes/Screenshot_69.png)
 
----
 
 Usaremos nuestro VPC para el EFS
+
 ![](imagenes/Screenshot_71.png)
 ![](imagenes/Screenshot_72.png)
 
