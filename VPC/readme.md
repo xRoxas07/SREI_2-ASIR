@@ -182,6 +182,7 @@ mysql -h puerto_de_enlace -u admin -p
 ```
 ![](imagenes/Screenshot_68.png)
 ![](imagenes/Screenshot_70.png)
+
 ---
 
 ## Elastic File System (EFS)
@@ -193,6 +194,7 @@ En el menu del AWS entrremos al `EFS` y selecionamos `Crear un sistemas de archi
 Usaremos nuestro VPC para el EFS
 ![](imagenes/Screenshot_71.png)
 ![](imagenes/Screenshot_72.png)
+
 
 Iremos a la configuracion de nuestro VPC de `Grupos de seguridad`, entremos a un grupo `servidorwp-sg` para configurar las `Reglas de entrada` añadiendo los protocolos de HTTP, NFS Y SSH.
   
