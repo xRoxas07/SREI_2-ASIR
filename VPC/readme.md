@@ -1,4 +1,8 @@
-## 1. Crear una VPC
+# Virtual Private Cloud (VPC) y Elastic File System (EFS)
+---
+## VPC
+---
+### Crear una VPC
 
 Una VPC es una red virtual que permite a los usuarios crear y configurar redes privadas seguras dentro de la nube de AWS.
 
@@ -18,12 +22,12 @@ En la página de `Configuración de la VPC`, configuramos los siguientes paráme
   - Número de zonas de disponibilidad (AZ): `2`
   - Cantidad de subredes públicas: `2`
   - Cantidada de subredes privadas: `2`
-  -  Personalizar las zonas de disponibilidad
+  - Personalizar las zonas de disponibilidad
   - Primera zona de disponibilidad: `us-east-1a`
   - Segunda zona de disponibilidad: `us-east-1b`
   - Cantidad de subredes públicas: `2`
   - Cantidad de subredes privadas: `2`
-  - 
+
 ![](imagenes/Screenshot_2.png)
 ![](imagenes/Screenshot_3.png)
 
@@ -47,7 +51,7 @@ En la página de `Configuración de la VPC`, configuramos los siguientes paráme
 
 ---
 
-## 2. Crear una instancia EC2
+### Crear una instancia EC2
 
 Vamos al menú de AWS y buscamos `EC2` y entramos.
 
@@ -78,7 +82,7 @@ Nos conectaremos a la instancia a traves de la coneccion ECS por la direccion IP
 
 ---
 
-## 3. Instalación de WordPress en la instancia EC2
+### Instalación de WordPress en la instancia EC2
 
 Actualizamos los paquetes del sistema
 
@@ -141,7 +145,7 @@ php -v
 
 ---
 
-## 4. Creación de la base de datos
+### Creación de la base de datos
 
 Volvemos al menú de AWS y buscamos `Aurora and RDS`
 
@@ -178,10 +182,10 @@ mysql -h puerto_de_enlace -u admin -p
 ```
 ![](imagenes/Screenshot_68.png)
 ![](imagenes/Screenshot_70.png)
+---
 
-
-# Elastic File System (EFS)
-
+## Elastic File System (EFS)
+---
 En el menu del AWS entrremos al `EFS` y selecionamos `Crear un sistemas de archivos`
 
 ![](imagenes/Screenshot_69.png)
