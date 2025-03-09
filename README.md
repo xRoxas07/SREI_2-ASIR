@@ -19,6 +19,7 @@ Fuck my life 2 electricabulaluz
 - [NSLOOKUP](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/Actividad%205%20T2/README.md) 
 - [DIG](https://ejemplo.com)                                                             
 - [Caching & fordwarding DNS Server](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/Caching%20%26%20fordwarding%20DNS%20Server/readme.md)
+- [Master DNS Server](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/Master%20DNS/readme.md)
 ## AWS
 ---
 - [VPC Y EFS](https://github.com/xRoxas07/SREI_2-ASIR/blob/main/VPC/readme.md)
